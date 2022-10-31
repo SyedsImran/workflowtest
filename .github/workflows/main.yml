@@ -8,9 +8,9 @@ on:
 jobs:
   apisecscan:
     uses: SyedsImran/VulnerabilityCheck/.github/workflows/test.yml@main
-    secrets:
-       apisec-username: ${{ secrets.apisec_username }}
-       apisec-password: ${{ secrets.apisec_password }}
+#     secrets:
+#        apisec-username: ${{ secrets.apisec_username }}
+#        apisec-password: ${{ secrets.apisec_password }}
     with:
       apisec-project: "TelusProjecttest1"
       apisec-profile: "Master"
@@ -23,6 +23,8 @@ jobs:
       apisec-refresh-playbooks: true
       apisec-hostname: 'https://developer.apisec.ai'
       apisec-scan-all-projects: false
+      apisec-username: ${{ secrets.apisec_username }}
+      apisec-password: ${{ secrets.apisec_password }}
       
       
       
