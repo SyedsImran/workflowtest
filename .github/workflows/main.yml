@@ -4,45 +4,50 @@ on:
     branches: [ "main" ]
   workflow_dispatch:
 
+
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: APIsec Scan
-        id: scan
-        uses: apisec-inc/apisec-run-scan@v1.0.5
-        with:
-          apisec-username: ${{ secrets.apisec_username }}
-          apisec-password: ${{ secrets.apisec_password }}
-          apisec-project: "TelusProjecttest1"
-          sarif-result-file: "apisec-results.sarif"
-    
-      - name: upload sarif file to repository
-        uses: github/codeql-action/upload-sarif@v2
-        with:
-          sarif_file: ./apisec-results.sarif
-
-
-
-
-# jobs:
-#   apisecscan:
-#     uses: SyedsImran/VulnerabilityCheck/.github/workflows/test.yml@main
-#     secrets:
-#        apisec_username: ${{ secrets.apisec_username }}
-#        apisec_password: ${{ secrets.apisec_password }}
-#     with:
-#       apisec-project: "TelusProjecttest1"
-#       apisec-profile: "Master"
-#       apisec-region: "Super_2"
-#       sarif-result-file: "apisec-results.sarif"
-#       apisec-email-report: true
-#       apisec-fail-on-high-vulns: false
-#       apisec-oas: true
-#       apisec-openapi-spec-url: 'http://netbanking.apisec.ai:8080/v2/api-docs'
-#       apisec-refresh-playbooks: true
-#       apisec-hostname: 'https://developer.apisec.ai'
-#       apisec-scan-all-projects: false
+  apisecscan:
+    uses: SyedsImran/VulnerabilityCheck/.github/workflows/test.yml@main
+    secrets:
+       apisec_username: ${{ secrets.apisec_username }}
+       apisec_password: ${{ secrets.apisec_password }}
+    with:
+      apisec-project: "TelusProjecttest1"
+      apisec-profile: "Master"
+      apisec-region: "Super_2"
+      sarif-result-file: "apisec-results.sarif"
+      apisec-email-report: true
+      apisec-fail-on-high-vulns: false
+      apisec-oas: true
+      apisec-openapi-spec-url: 'http://netbanking.apisec.ai:8080/v2/api-docs'
+      apisec-refresh-playbooks: true
+      apisec-hostname: 'https://developer.apisec.ai'
+      #apisec-scan-all-projects: false
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
       
       
       
@@ -54,6 +59,24 @@ jobs:
       
     
 
+
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: APIsec Scan
+#         id: scan
+#         uses: apisec-inc/apisec-run-scan@v1.0.5
+#         with:
+#           apisec-username: ${{ secrets.apisec_username }}
+#           apisec-password: ${{ secrets.apisec_password }}
+#           apisec-project: "TelusProjecttest1"
+#           sarif-result-file: "apisec-results.sarif"
+    
+#       - name: upload sarif file to repository
+#         uses: github/codeql-action/upload-sarif@v2
+#         with:
+#           sarif_file: ./apisec-results.sarif
 
 
 # name: Workflowtest-Check
